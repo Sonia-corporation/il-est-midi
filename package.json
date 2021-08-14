@@ -211,7 +211,7 @@
     "majestic": "1.8.1",
     "node-notifier": "10.0.0",
     "parcel-bundler": "1.12.5",
-    "prettier": "2.2.1",
+    "prettier": "2.3.2",
     "pug": "3.0.2",
     "rimraf": "3.0.2",
     "semantic-release": "17.4.4",
