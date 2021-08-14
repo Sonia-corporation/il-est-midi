@@ -8,6 +8,7 @@ import { DiscordMessageCommandFeatureEmptyFeatureNameErrorService } from './serv
 import { DiscordMessageCommandFeatureWrongFeatureNameErrorService } from './services/feature-names/discord-message-command-feature-wrong-feature-name-error.service';
 import { DiscordMessageCommandFeatureDuplicatedFlagsErrorService } from './services/flags/discord-message-command-feature-duplicated-flags-error.service';
 import { DiscordMessageCommandFeatureEmptyFlagsErrorService } from './services/flags/discord-message-command-feature-empty-flags-error.service';
+import { DiscordMessageCommandFeatureFlagsService } from './services/flags/discord-message-command-feature-flags.service';
 import { DiscordMessageCommandFeatureOppositeFlagsErrorService } from './services/flags/discord-message-command-feature-opposite-flags-error.service';
 import { DiscordMessageCommandFeatureWrongFlagsErrorService } from './services/flags/discord-message-command-feature-wrong-flags-error.service';
 import { AbstractService } from '../../../../../../classes/services/abstract.service';
@@ -69,6 +70,10 @@ export class DiscordMessageCommandFeatureService extends AbstractService {
     // Small type hack but the other way is to use instanceof and it's not nice for the testing purposes
     const message: Message = anyDiscordMessage as Message;
     const featureName: string | null = this._getFeatureName(message.content);
+
+    if (DiscordMessageCommandFeatureFlagsService.getInstance().hasFlag(message.content)) {
+      return DiscordMessageCommandFeatureFlagsService.getInstance().getMessageResponse(message.content);
+    }
 
     if (_.isNil(featureName)) {
       LoggerService.getInstance().debug({

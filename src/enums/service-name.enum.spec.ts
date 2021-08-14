@@ -236,6 +236,14 @@ describe(`ServiceNameEnum`, (): void => {
     );
   });
 
+  it(`should have a member "DISCORD_MESSAGE_COMMAND_FEATURE_FLAGS_SERVICE"`, (): void => {
+    expect.assertions(1);
+
+    expect(ServiceNameEnum.DISCORD_MESSAGE_COMMAND_FEATURE_FLAGS_SERVICE).toStrictEqual(
+      `DiscordMessageCommandFeatureFlagsService`
+    );
+  });
+
   it(`should have a member "DISCORD_MESSAGE_COMMAND_FEATURE_NOON_CONFIG_CORE_SERVICE"`, (): void => {
     expect.assertions(1);
 

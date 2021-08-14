@@ -134,12 +134,12 @@ describe(`DiscordMessageCommandFeatureEmptyFeatureNameErrorService`, (): void =>
       expect(result.options.embed?.color).toStrictEqual(ColorEnum.CANDY);
     });
 
-    it(`should return a Discord message response embed with 3 fields`, async (): Promise<void> => {
+    it(`should return a Discord message response embed with 4 fields`, async (): Promise<void> => {
       expect.assertions(1);
 
       const result = await service.getMessageResponse(anyDiscordMessage, commands);
 
-      expect(result.options.embed?.fields).toHaveLength(3);
+      expect(result.options.embed?.fields).toHaveLength(4);
     });
 
     it(`should return a Discord message response embed with a field explaining the error`, async (): Promise<void> => {
@@ -180,6 +180,18 @@ describe(`DiscordMessageCommandFeatureEmptyFeatureNameErrorService`, (): void =>
           value: `\`!feature noon\``,
         } as EmbedFieldData);
       });
+
+      it(`should return a Discord message response embed with a field to show an example of the command with the help flag and the "!feature" command`, async (): Promise<void> => {
+        expect.assertions(1);
+        discordMessageConfigServiceGetMessageCommandPrefixSpy.mockReturnValue([`-`]);
+
+        const result = await service.getMessageResponse(anyDiscordMessage, commands);
+
+        expect(result.options.embed?.fields?.[3]).toStrictEqual({
+          name: `Need help?`,
+          value: `If you need my help, you can also specify the help flag \`!feature --help\` and I will try my best to help you!`,
+        } as EmbedFieldData);
+      });
     });
 
     describe(`when the given Discord message content is not a valid command`, (): void => {
@@ -196,6 +208,18 @@ describe(`DiscordMessageCommandFeatureEmptyFeatureNameErrorService`, (): void =>
         expect(result.options.embed?.fields?.[2]).toStrictEqual({
           name: `Example`,
           value: `\`!feature noon\``,
+        } as EmbedFieldData);
+      });
+
+      it(`should return a Discord message response embed with a field to show an example of the command with the help flag and the "!feature" command`, async (): Promise<void> => {
+        expect.assertions(1);
+        discordMessageConfigServiceGetMessageCommandPrefixSpy.mockReturnValue([`-`]);
+
+        const result = await service.getMessageResponse(anyDiscordMessage, commands);
+
+        expect(result.options.embed?.fields?.[3]).toStrictEqual({
+          name: `Need help?`,
+          value: `If you need my help, you can also specify the help flag \`!feature --help\` and I will try my best to help you!`,
         } as EmbedFieldData);
       });
     });
@@ -221,6 +245,17 @@ describe(`DiscordMessageCommandFeatureEmptyFeatureNameErrorService`, (): void =>
             value: `\`!f noon\``,
           } as EmbedFieldData);
         });
+
+        it(`should return a Discord message response embed with a field to show an example of the command with the help flag by taking the prefix and command`, async (): Promise<void> => {
+          expect.assertions(1);
+
+          const result = await service.getMessageResponse(anyDiscordMessage, commands);
+
+          expect(result.options.embed?.fields?.[3]).toStrictEqual({
+            name: `Need help?`,
+            value: `If you need my help, you can also specify the help flag \`!f --help\` and I will try my best to help you!`,
+          } as EmbedFieldData);
+        });
       });
 
       describe(`when the prefix is "-"`, (): void => {
@@ -236,6 +271,17 @@ describe(`DiscordMessageCommandFeatureEmptyFeatureNameErrorService`, (): void =>
           expect(result.options.embed?.fields?.[2]).toStrictEqual({
             name: `Example`,
             value: `\`!feature noon\``,
+          } as EmbedFieldData);
+        });
+
+        it(`should return a Discord message response embed with a field to show an example of the command with the help flag and the "!feature" command`, async (): Promise<void> => {
+          expect.assertions(1);
+
+          const result = await service.getMessageResponse(anyDiscordMessage, commands);
+
+          expect(result.options.embed?.fields?.[3]).toStrictEqual({
+            name: `Need help?`,
+            value: `If you need my help, you can also specify the help flag \`!feature --help\` and I will try my best to help you!`,
           } as EmbedFieldData);
         });
       });
@@ -262,6 +308,17 @@ describe(`DiscordMessageCommandFeatureEmptyFeatureNameErrorService`, (): void =>
             value: `\`!feature noon\``,
           } as EmbedFieldData);
         });
+
+        it(`should return a Discord message response embed with a field to show an example of the command with the help flag and the "!feature" command`, async (): Promise<void> => {
+          expect.assertions(1);
+
+          const result = await service.getMessageResponse(anyDiscordMessage, commands);
+
+          expect(result.options.embed?.fields?.[3]).toStrictEqual({
+            name: `Need help?`,
+            value: `If you need my help, you can also specify the help flag \`!feature --help\` and I will try my best to help you!`,
+          } as EmbedFieldData);
+        });
       });
 
       describe(`when the prefix is "-"`, (): void => {
@@ -277,6 +334,17 @@ describe(`DiscordMessageCommandFeatureEmptyFeatureNameErrorService`, (): void =>
           expect(result.options.embed?.fields?.[2]).toStrictEqual({
             name: `Example`,
             value: `\`-lunch noon\``,
+          } as EmbedFieldData);
+        });
+
+        it(`should return a Discord message response embed with a field to show an example of the command with the help flag by taking the prefix and command`, async (): Promise<void> => {
+          expect.assertions(1);
+
+          const result = await service.getMessageResponse(anyDiscordMessage, commands);
+
+          expect(result.options.embed?.fields?.[3]).toStrictEqual({
+            name: `Need help?`,
+            value: `If you need my help, you can also specify the help flag \`-lunch --help\` and I will try my best to help you!`,
           } as EmbedFieldData);
         });
       });
