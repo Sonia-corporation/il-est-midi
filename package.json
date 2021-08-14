@@ -143,7 +143,7 @@
     "install-git-hooks": "husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks"
   },
   "dependencies": {
-    "@datorama/akita": "6.2.2",
+    "@datorama/akita": "6.2.3",
     "@scout_apm/scout-apm": "0.2.2",
     "axios": "0.21.1",
     "discord.js": "12.5.3",
