@@ -154,7 +154,7 @@
     "moment": "2.29.1",
     "moment-timezone": "0.5.33",
     "node-schedule": "2.0.0",
-    "rxjs": "6.6.7",
+    "rxjs": "7.3.0",
     "xregexp": "5.1.0"
   },
   "devDependencies": {
