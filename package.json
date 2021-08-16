@@ -198,7 +198,7 @@
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-progress": "0.0.1",
     "eslint-plugin-rxjs": "3.3.4",
-    "eslint-plugin-typescript-sort-keys": "1.7.0",
+    "eslint-plugin-typescript-sort-keys": "1.8.0",
     "faker": "5.5.3",
     "fs-extra": "10.0.0",
     "husky": "7.0.1",
