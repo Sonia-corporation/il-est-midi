@@ -170,7 +170,7 @@
     "lodash": "4.17.21",
     "moment": "2.29.4",
     "moment-timezone": "0.5.40",
-    "node-schedule": "2.1.0",
+    "node-schedule": "2.1.1",
     "rxjs": "7.8.0",
     "xregexp": "5.1.1"
   },
@@ -191,7 +191,7 @@
     "@types/jest": "29.2.6",
     "@types/lodash": "4.14.191",
     "@types/node": "14.18.36",
-    "@types/node-schedule": "2.1.0",
+    "@types/node-schedule": "2.1.7",
     "@types/ws": "8.5.4",
     "@types/xregexp": "4.3.0",
     "@typescript-eslint/eslint-plugin": "5.48.2",
