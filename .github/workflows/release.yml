@@ -38,7 +38,7 @@ jobs:
           node-version-file: '.nvmrc'
       - name: Cache node_modules
         if: github.event_name == 'push' || github.event_name == 'pull_request'
-        uses: actions/cache@6998d139ddd3e68c71e9e398d8e40b71a2f39812 # v3
+        uses: actions/cache@2f8e54208210a422b2efd51efaa6bd6d7ca8920f # v3
         env:
           cache-name: cache-node-modules
         with:
